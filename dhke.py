@@ -1,6 +1,9 @@
+# diffie-hellman key exchange source code
 from gmpy2 import mpz
 from random import randrange, getrandbits
 
+
+#miller-rabin test
 def mRT(p, s=3):
     
     # 2 and 3 are prime numbers
@@ -49,7 +52,8 @@ def generate_prime(len=1024):
             break
     return p   
     
-    
+
+# square and multiply algorithm
 def sq_and_mul(x, h, n):
     bin_h = bin(h)
     y = x
@@ -59,7 +63,7 @@ def sq_and_mul(x, h, n):
             y = (y * x) % n
     return y
 
-
+# safe primes
 def find_p_q(size = 1024):
     while True:
         prime = generate_prime(size)
